@@ -22,6 +22,7 @@ api = Api(app)
 
 app.secret_key = 'strumprivatekey'
 
+
 if os.environ.get('DATABASE_URL') is None:
     # 添加到 run.py  如果不是在 本地调试就调用 run.py
     @app.before_first_request
