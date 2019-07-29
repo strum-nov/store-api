@@ -18,9 +18,14 @@ api = Api(app)
 
 app.secret_key = 'strumprivatekey'
 
+''' 添加到 run.py
+# heroku 注释   本地调试-》打开
+
 @app.before_first_request
 def create_tables():
     db.create_all()
+'''
+
 '''
 db.create_all() 
 1：会找到 resources import 的 Store
@@ -47,12 +52,15 @@ api.add_resource(UserRegister,'/register')
 api.add_resource(Store,'/store/<string:name>')
 api.add_resource(StoreList,'/stores')
 
-if __name__ == '__main__':
+# heroku 注释   本地调试-》打开
+# if __name__ == '__main__':
     #如果允许的python文件是main 那么就启动flask
     #如果 app import 其他文件 __name__就不是 main 了
-    from db import db
-    db.init_app(app)
-    app.run(port=5000,debug=True)
+
+
+    # from db import db
+    # db.init_app(app)
+    # app.run(port=5000,debug=True)
 
 
 
